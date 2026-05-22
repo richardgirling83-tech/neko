@@ -6,7 +6,7 @@
     <title>Richard Girling, Ph.D. | Candidate for Director of UK Marketing @ Neko Health</title>
     <style>
         :root {
-            --neko-teal: #2d4a52; /* Deep slate teal matching the logo */
+            --neko-teal: #2d4a52; 
             --neko-dark-teal: #1f3137;
             --neko-accent: #2b6cb0;
             --text-dark: #2d3142;
@@ -75,13 +75,24 @@
             gap: 40px;
         }
 
-        .hero-img {
+        .hero-img-box {
+            flex-shrink: 0;
             width: 180px;
             height: 180px;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #ffffff;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            display: block;
+        }
+
+        .hero-content {
+            flex: 1;
         }
 
         .hero-content h2 {
@@ -299,6 +310,7 @@
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
+            display: block;
         }
 
         .connect-info p {
@@ -338,7 +350,9 @@
     </header>
 
     <section class="hero-section">
-        <img src="richard-girling.jpg" alt="Richard Girling, Ph.D." class="hero-img">
+        <div class="hero-img-box">
+            <img src="richard-girling.jpg" alt="Richard Girling, Ph.D." class="hero-img">
+        </div>
         <div class="hero-content">
             <h2>Local Market Orchestration & HealthTech Growth</h2>
             <p class="hero-tagline">Exited Healthcare Founder & Comms Expert Equipped to Unlock the UK Preventative Market.</p>
@@ -435,7 +449,7 @@
                     </p>
                     <ul>
                         <li><strong>Scalable Growth Funnels:</strong> Deployed advanced geo-targeted marketing funnels and automation networks that scaled the firm's reach to over <strong>500+ active healthcare practices and clinics</strong>.</li>
-                        <li><strong>Successful Exit:</strong> Retained full commercial and P&L responsibility over client conversion loops and brand positioning, taking the business from inception to a successful **7-figure acquisition** in 2026.</li>
+                        <li><strong>Successful Exit:</strong> Retained full commercial and P&L responsibility over client conversion loops and brand positioning, taking the business from inception to a successful <strong>7-figure acquisition</strong> in 2026.</li>
                     </ul>
                 </div>
 
@@ -445,7 +459,7 @@
                         Headed global communications strategy and digital infrastructure, functioning without direct authority to unify cross-border initiatives.
                     </p>
                     <ul>
-                        <li><strong>Audience Amplification:</strong> Transformed distributed web pipelines and audience engagement tactics, generating a **300% surge in web traffic** and a **5x expand rate** across digital visibility pathways.</li>
+                        <li><strong>Audience Amplification:</strong> Transformed distributed web pipelines and audience engagement tactics, generating a <strong>300% surge in web traffic</strong> and a <strong>5x expand rate</strong> across digital visibility pathways.</li>
                         <li><strong>Influence Mapping:</strong> Successfully brought highly regulated, diverse international networks into alignment behind core central briefs while maintaining strict GDPR data boundaries.</li>
                     </ul>
                 </div>
