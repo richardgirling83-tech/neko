@@ -6,7 +6,7 @@
     <title>Richard Girling, Ph.D. — Candidate for Director of UK Marketing @ Neko Health</title>
     <style>
         :root {
-            --neko-bg: #2d4a52; /* Deep teal matching the logo */
+            --neko-bg: #2d4a52;
             --neko-bg-light: #f4f7f6;
             --text-dark: #1f3137;
             --text-muted: #536b73;
@@ -52,15 +52,582 @@
             gap: 1rem;
         }
 
-        /* Responsive UI Architecture */
+        .brand-logo img {
+            height: 45px;
+            width: 45px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .brand-logo span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .hero {
+            padding: 5rem 2rem;
+            background-color: var(--neko-bg-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image-container {
+            flex-shrink: 0;
+        }
+
+        .hero-image-container img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tag {
+            background-color: var(--neko-bg);
+            color: var(--white);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            color: var(--neko-bg);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .meta-item span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-item p {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .meta-item a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.85rem;
+            color: var(--neko-bg);
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--neko-bg);
+        }
+
+        .letter-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .letter-p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            text-align: justify;
+        }
+
+        .letter-p strong {
+            color: var(--neko-bg);
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .matrix-card {
+            background: var(--neko-bg-light);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .matrix-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+
+        .matrix-header {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--neko-bg);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .matrix-body {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .matrix-requirement {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+            background: rgba(45, 74, 82, 0.06);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .case-studies {
+            background-color: #fcfdfe;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .case-study-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .case-study-card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.02);
+        }
+
+        .case-left {
+            border-right: 1px solid var(--border-color);
+            padding-right: 2rem;
+        }
+
+        .case-meta-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .case-meta-item h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .case-meta-item p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--neko-bg);
+        }
+
+        .case-right h3 {
+            font-size: 1.4rem;
+            color: var(--neko-bg);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .case-bullet {
+            margin-left: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .cv-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+        }
+
+        .time-period {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            color: var(--neko-bg);
+            font-weight: 700;
+        }
+
+        .timeline-content .subhead {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background-color: var(--neko-bg);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            opacity: 0.7;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: underline;
+            opacity: 0.9;
+        }
+
         @media (max-width: 900px) {
             .hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
                 gap: 2rem;
             }
-            .matrix-grid { grid-template-columns: 1fr; }
-            .case-study-card { grid-template-columns: 1fr; gap: 1.5rem; }
+            .matrix-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-study-card {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .case-left {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding-right: 0;
+                padding-bottom: 1.5rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .letter-card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="brand-logo">
+                <img src="neko-logo.jpeg" alt="Neko Health Logo">
+                <span>Richard Girling, Ph.D. × Neko Health</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#why-neko">The Mission</a>
+                <a href="#matrix">The Alignment</a>
+                <a href="#cases">Case Studies</a>
+                <a href="#experience">Background</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <span class="tag">Director of UK Marketing Candidate</span>
+                    <h1>Richard Girling, Ph.D.</h1>
+                    <p class="hero-subtitle">HealthTech Scale-Up Strategist & Exited Founder</p>
+                    
+                    <div class="meta-grid">
+                        <div class="meta-item">
+                            <span>Location</span>
+                            <p>London, United Kingdom</p>
+                        </div>
+                        <div class="meta-item">
+                            <span>Phone</span>
+                            <p>+44 (0)7828753750</p>
+                        </div>
+                        <div class="meta-item">
+                            <span>Email</span>
+                            <p><a href="mailto:richard.girling@email.com">richard.girling@email.com</a></p>
+                        </div>
+                        <div class="meta-item">
+                            <span>LinkedIn</span>
+                            <p><a href="https://www.linkedin.com/in/richard-girling-ph-d-a8a5999/" target="_blank">View Profile</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="richard-girling.jpeg" alt="Richard Girling, Ph.D.">
+                </div>
+            </div>
+        </section>
+
+        <section id="why-neko" class="section">
+            <h2 class="section-title">Why Neko Health?</h2>
+            <div class="letter-card">
+                <p class="letter-p">
+                    I actually signed up on your scan waiting list years ago—so I need absolutely no convincing about the profound necessity and immediate commercial benefits of proactive, preventative health. I have lived and breathed this philosophy from afar as an operator, and up close as a consumer tracking your journey from Sweden to London.
+                </p>
+                <p class="letter-p">
+                    Speaking candidly: the medical marketing agency I founded made good money, but over time, it lacked true meaning. Our tools were optimized to help individual practices scale, but it often felt like we were just making rich doctors richer. 
+                </p>
+                <p class="letter-p">
+                    I want to dedicate the next decade of my career to something systemic, data-driven, and genuinely transformative. Neko’s strong sense of mission—shifting humanity away from treating illness when it arrives to sustaining health before it's ever at risk—is something I will throw myself into with raw passion, commercial execution, and unmatched alignment.
+                </p>
+            </div>
+        </section>
+
+        <section id="matrix" class="section" style="background-color: #fafbfc; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 class="section-title">The Perfect Fit Matrix</h2>
+                <div class="matrix-grid">
+                    <div class="matrix-card">
+                        <div class="matrix-requirement">Role Purpose: Orchestration & Influence</div>
+                        <div class="matrix-header">The Internal Client</div>
+                        <div class="matrix-body">
+                            Experienced acting as the primary orchestrator across cross-border operations. I know exactly how to write airtight, data-backed briefs to central Centres of Excellence (COEs) while fiercely protecting local market cultural dynamics and clinic utilization metrics.
+                        </div>
+                    </div>
+                    <div class="matrix-card">
+                        <div class="matrix-requirement">Requirement: Commercial Acumen</div>
+                        <div class="matrix-header">Funnel-to-Clinic Utilization</div>
+                        <div class="matrix-body">
+                            14+ years managing strict P&L targets. I don't treat marketing as an aesthetic exercise; I connect marketing infrastructure and media investment directly to local conversion funnels, patient volume, and revenue generation.
+                        </div>
+                    </div>
+                    <div class="matrix-card">
+                        <div class="matrix-requirement">Requirement: UK Media Landscape</div>
+                        <div class="matrix-header">Earned Media & PR Engine</div>
+                        <div class="matrix-body">
+                            Deeply rooted in London with early career foundations in London-based financial PR (Redleaf Communications). Expert at driving earned media and negotiating strategic partnerships with lifestyle, business, and health media.
+                        </div>
+                    </div>
+                    <div class="matrix-card">
+                        <div class="matrix-requirement">Requirement: Influence without Authority</div>
+                        <div class="matrix-header">Cross-Border Alignment</div>
+                        <div class="matrix-body">
+                            As a Head of Communications for international advocacy bodies in Brussels and cross-border founder, I excel at leading via consensus, establishing immediate credibility with central tech and design leaders, and aligning global infrastructure with local needs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cases" class="section case-studies">
+            <h2 class="section-title">Strategic Case Studies</h2>
+            <div class="case-study-stack">
+                
+                <div class="case-study-card">
+                    <div class="case-left">
+                        <div class="case-meta-item">
+                            <h4>Company</h4>
+                            <p>Red Castle Services</p>
+                        </div>
+                        <div class="case-meta-item">
+                            <h4>Impact</h4>
+                            <p>500+ Clinics Scaled<br>7-Figure Exit (2026)</p>
+                        </div>
+                        <div class="case-meta-item">
+                            <h4>Core Focus</h4>
+                            <p>Multi-Site Proximity Marketing</p>
+                        </div>
+                    </div>
+                    <div class="case-right">
+                        <h3>Scaling Local Demand Funnels at Scale</h3>
+                        <p class="letter-p" style="font-size: 1rem; color: var(--text-muted);">
+                            <strong>The Challenge:</strong> Building localized, highly conversion-oriented patient acquisition systems across disparate physical clinic boundaries with highly specific geographical catchment rules.
+                        </p>
+                        <div class="case-bullet"><strong>Geo-Targeted Media Engines:</strong> Engineered hyper-local acquisition structures matching dynamic proximity parameters around brick-and-mortar entities.</div>
+                        <div class="case-bullet"><strong>Content Translation:</strong> Managed the end-to-end iteration of sophisticated medical value propositions into understandable, actionable consumer benefits that minimized acquisition friction.</div>
+                        <div class="case-bullet"><strong>Commercial Scale:</strong> Built structural enterprise valuation from zero to an explicit 7-figure exit over a 14-year run by measuring ROI at the individual practice unit level.</div>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-left">
+                        <div class="case-meta-item">
+                            <h4>Institution</h4>
+                            <p>University of Amsterdam</p>
+                        </div>
+                        <div class="case-meta-item">
+                            <h4>Impact</h4>
+                            <p>Ph.D. Frameworks<br>70+ Founder Deep Dives</p>
+                        </div>
+                        <div class="case-meta-item">
+                            <h4>Core Focus</h4>
+                            <p>Global Entrepreneurship</p>
+                        </div>
+                    </div>
+                    <div class="case-right">
+                        <h3>Deconstructing Ecosystem Scaling Moats</h3>
+                        <p class="letter-p" style="font-size: 1rem; color: var(--text-muted);">
+                            <strong>The Challenge:</strong> Quantifying how innovative companies safely clear complex regulatory, cultural, and socio-economic hurdles when establishing dominant market presence in foreign territory.
+                        </p>
+                        <div class="case-bullet"><strong>Data-Driven Field Insights:</strong> Conducted 70+ in-depth qualitative and quantitative evaluations with multi-market ecosystem architects to understand go-to-market mechanics.</div>
+                        <div class="case-bullet"><strong>Regulatory Adaptation:</strong> Built advanced investigative frameworks assessing corporate navigation of structural, legal, and operational landscapes—exactly mirroring the challenges Neko faces expanding into the complex UK medical regulatory landscape.</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <h2 class="section-title">Career Chronological Brief</h2>
+            <div class="cv-timeline">
+                <div class="timeline-item">
+                    <div class="time-period">May 2026 – Present</div>
+                    <div class="timeline-content">
+                        <h3>Strategic Advisor & Venture Partner</h3>
+                        <div class="subhead">Girling Strategic Advisors — London, UK</div>
+                        <p>Providing high-tier fractional growth architecture, board positioning, and data insights for early-stage HealthTech frameworks looking to scale commercial clinic structures.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-period">2012 – May 2026</div>
+                    <div class="timeline-content">
+                        <h3>Founder & CEO (Exited)</h3>
+                        <div class="subhead">Red Castle Services — Remote / US & UK Markets</div>
+                        <p>Executed continuous growth strategy, localized user deployment, optimization systems, and ultimate asset monetization framework leading to a successful seven-figure acquisition.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-period">2021 – 2022</div>
+                    <div class="timeline-content">
+                        <h3>Head of Communications</h3>
+                        <div class="subhead">Migration Policy Group — Brussels, Belgium (Hybrid)</div>
+                        <p>Orchestrated cross-border communication architecture. Controlled workflow alignment across deep corporate and media networks with zero direct hierarchy over centralized nodes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="border-top: 1px solid var(--border-color); padding-top: 4rem;">
+            <h2 class="section-title">Education & Credentials</h2>
+            <div class="cv-timeline">
+                <div class="timeline-item">
+                    <div class="time-period">2017 – 2021</div>
+                    <div class="timeline-content">
+                        <h3>University of Amsterdam</h3>
+                        <div class="subhead">Ph.D. in Entrepreneurship/Entrepreneurial Studies</div>
+                        <p>Focusing on global entrepreneurship, data structures, and systemic scalability metrics.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-period">2014 – 2016</div>
+                    <div class="timeline-content">
+                        <h3>University of Wroclaw</h3>
+                        <div class="subhead">Master’s Degree in International Relations</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-period">2002 – 2006</div>
+                    <div class="timeline-content">
+                        <h3>Durham University</h3>
+                        <div class="subhead">BA in German and Linguistics — 1st Class Honors</div>
+                        <p>Captain of Hild Bede Men’s Hockey Club, Foster Child Mentor Scheme.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Richard Girling, Ph.D. — Structured exclusively for the Neko Health Leadership Team.</p>
+        <p>Built with purpose. Let's build preventative normatives together.</p>
+    </footer>
+
+</body>
+</html>
